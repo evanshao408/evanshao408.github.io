@@ -60,7 +60,7 @@ em { font-style: normal; color: var(--accent); }
   background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
   z-index: 0; pointer-events: none;
 }
-.hero .container { position: relative; z-index: 1; }
+.hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 400px); gap: 64px; align-items: center; }
 .hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); margin-bottom: 22px; }
 .pulse { width: 7px; height: 7px; border-radius: 50%; background: #3f9d4c; box-shadow: 0 0 0 0 rgba(63,157,76,.45); animation: pulse 2s infinite; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 7px rgba(63,157,76,0); } }
@@ -74,7 +74,12 @@ em { font-style: normal; color: var(--accent); }
 .hero-links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-size: 14px; }
 .hero-links a { border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; transition: all .18s; }
 .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
-.hero-terminal { position: relative; z-index: 1; margin-top: 52px; max-width: 460px; background: #17150f; color: #d9d5c8; border-radius: 10px; padding: 18px 22px; font-size: 13.5px; line-height: 2; border: 1px solid #26221a; }
+.hero-terminal { width: 100%; background: #17150f; color: #d9d5c8; border-radius: 12px; font-size: 13.5px; line-height: 2; border: 1px solid #26221a; box-shadow: 0 24px 50px -28px rgba(23,21,15,.55); overflow: hidden; }
+.term-bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid #26221a; background: #1c1a13; }
+.term-dot { width: 10px; height: 10px; border-radius: 50%; background: #3a372e; }
+.term-dot:first-child { background: var(--accent); }
+.term-title { margin-left: auto; font-size: 11px; color: #8f8876; }
+.term-body { padding: 14px 16px 18px; }
 .term-line { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .t-p { color: #e0875a; }
 .t-c { color: #f2efe6; }
@@ -158,6 +163,10 @@ em { font-style: normal; color: var(--accent); }
 .list a:hover { color: var(--accent); }
 
 /* ============ 响应式 ============ */
+@media (max-width: 880px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-terminal { max-width: 460px; }
+}
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .proj { grid-template-columns: 1fr; gap: 8px; }

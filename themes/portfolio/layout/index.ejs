@@ -1,24 +1,32 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-label mono"><span class="pulse"></span> 在职 · 月内到岗</div>
-    <h1 class="hero-name serif"><%= theme.name %></h1>
-    <div class="hero-title serif"><%= theme.title %><span class="hero-title-en mono"> / <%= theme.en_title %></span></div>
-    <p class="hero-desc">
-      专注 <em>LLM Agent</em>、<em>RAG</em> 与 <em>知识图谱</em>工程化，
-      从算法竞赛走到工业级大模型落地。
-    </p>
-    <div class="hero-links mono">
-      <a href="<%= theme.github %>" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="<%= theme.csdn %>" target="_blank" rel="noopener">CSDN ↗</a>
-      <a href="mailto:<%= theme.email %>"><%= theme.email %></a>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="hero-label mono"><span class="pulse"></span> 在职 · 月内到岗</div>
+      <h1 class="hero-name serif"><%= theme.name %></h1>
+      <div class="hero-title serif"><%= theme.title %><span class="hero-title-en mono"> / <%= theme.en_title %></span></div>
+      <p class="hero-desc">
+        专注 <em>LLM Agent</em>、<em>RAG</em> 与 <em>知识图谱</em>工程化，
+        从算法竞赛走到工业级大模型落地。
+      </p>
+      <div class="hero-links mono">
+        <a href="<%= theme.github %>" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="<%= theme.csdn %>" target="_blank" rel="noopener">CSDN ↗</a>
+        <a href="mailto:<%= theme.email %>"><%= theme.email %></a>
+      </div>
     </div>
-  </div>
-  <div class="hero-terminal mono" aria-hidden="true">
-    <div class="term-line"><span class="t-p">~/evanshao408 $</span> <span class="t-c">whoami</span></div>
-    <div class="term-line t-o">LLM Algorithm Engineer</div>
-    <div class="term-line"><span class="t-p">~/evanshao408 $</span> <span class="t-c">cat focus</span></div>
-    <div class="term-line t-o">agent · rag · knowledge-graph<span class="cursor">█</span></div>
+    <div class="hero-terminal mono" aria-hidden="true">
+      <div class="term-bar">
+        <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+        <span class="term-title">~/evanshao408</span>
+      </div>
+      <div class="term-body">
+        <div class="term-line"><span class="t-p">$</span> <span class="t-c">whoami</span></div>
+        <div class="term-line t-o">LLM Algorithm Engineer</div>
+        <div class="term-line"><span class="t-p">$</span> <span class="t-c">cat focus</span></div>
+        <div class="term-line t-o">agent · rag · knowledge-graph<span class="cursor">█</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
