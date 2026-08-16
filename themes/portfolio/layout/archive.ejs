@@ -1,0 +1,15 @@
+<section class="section">
+  <div class="container container-narrow">
+    <div class="section-head">
+      <div class="section-no mono">#</div>
+      <h2 class="section-title">归档</h2>
+      <p class="section-sub">Archives</p>
+    </div>
+    <% var posts = page.posts || site.posts; %>
+    <ul class="list mono">
+      <% posts.each(function(post){ %>
+        <li><span class="muted"><%- date(post.date, 'YYYY-MM-DD') %></span> <a href="<%- url_for(post.path) %>"><%= post.title %></a></li>
+      <% }) %>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+# Portfolio theme configuration
+# 修改这些基础信息后，站内导航、页脚会自动更新
+
+name: 邵昱原
+en_name: Evan Shao
+title: 大模型算法工程师
+en_title: LLM Algorithm Engineer
+
+# 社交/联系链接（改这里即可）
+email: shaoevan@foxmail.com
+phone: 13937427207
+github: https://github.com/evanshao408
+csdn: https://blog.csdn.net/   # TODO: 填入你的 CSDN 博客主页链接

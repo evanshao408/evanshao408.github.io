@@ -1,0 +1,417 @@
+<!-- =====================================================================
+  主页 · 求职介绍
+  修改说明：
+  - 基础信息（姓名/邮箱/电话/链接）在 themes/portfolio/_config.yml
+  - 项目仓库的占位卡片在下方「项目仓库」区块，替换 href 即可接入真实仓库
+====================================================================== -->
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-main">
+      <div class="hero-badge mono">
+        <span class="pulse"></span> 在职 · 一个月内到岗
+      </div>
+      <h1 class="hero-name"><%= theme.name %></h1>
+      <div class="hero-sub">
+        <span class="hero-title"><%= theme.title %></span>
+        <span class="hero-title-en mono"><%= theme.en_title %></span>
+      </div>
+      <p class="hero-desc">
+        专注 <strong>LLM Agent</strong>、<strong>RAG</strong> 与 <strong>知识图谱</strong>工程化的算法工程师，
+        从算法竞赛一路走到工业级大模型项目落地。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">查看项目 ↓</a>
+        <a class="btn btn-ghost" href="<%- url_for('resume.pdf') %>" target="_blank" rel="noopener">下载简历 PDF</a>
+      </div>
+      <div class="hero-meta mono">
+        <a href="mailto:<%= theme.email %>">✉ <%= theme.email %></a>
+        <a href="<%= theme.github %>" target="_blank" rel="noopener">⌥ github/evanshao408</a>
+        <a href="<%= theme.csdn %>" target="_blank" rel="noopener">▤ CSDN</a>
+      </div>
+    </div>
+
+    <div class="hero-terminal" aria-hidden="true">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="terminal-title mono">shao-yuyuan — zsh</span>
+        </div>
+        <div class="terminal-body mono">
+          <div class="tline"><span class="tprompt">~/portfolio $</span> <span class="tcmd">whoami</span></div>
+          <div class="tline tout">Shao Yuyuan · LLM Algorithm Engineer</div>
+          <div class="tline"><span class="tprompt">~/portfolio $</span> <span class="tcmd">cat focus.txt</span></div>
+          <div class="tline tout">Agent · RAG · Knowledge Graph · Engineering</div>
+          <div class="tline"><span class="tprompt">~/portfolio $</span> <span class="tcmd">ls repos/</span></div>
+          <div class="tline tout">copilot-agent/  knowledge-base/  vision-system/<span class="cursor">█</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container hero-stats">
+    <div class="stat">
+      <div class="stat-num">3<span class="accent">年</span></div>
+      <div class="stat-label">大模型工程经验</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">22<span class="accent">/22</span></div>
+      <div class="stat-label">黄金路径测试通过</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">25.6<span class="accent">k</span></div>
+      <div class="stat-label">知识图谱节点</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5<span class="accent">项</span></div>
+      <div class="stat-label">算法竞赛国奖</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 关于 ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-no mono">01</div>
+      <h2 class="section-title">关于我</h2>
+      <p class="section-sub">About</p>
+    </div>
+    <div class="about-grid reveal">
+      <p class="about-lead">
+        对算法与数据结构有扎实基础，对计算机行业充满热情。自学能力强，坚持定期做知识输出；
+        具备良好的沟通与团队协作，执行力强、责任心重。
+      </p>
+      <ul class="about-points">
+        <li><span class="pt accent">●</span> 从算法竞赛（CCPC/ICPC/蓝桥杯）一路走到工业级大模型项目落地</li>
+        <li><span class="pt accent">●</span> 端到端交付：从模型、检索、图谱到服务工程化、评测与降级兜底</li>
+        <li><span class="pt accent">●</span> 关注可审计、可追溯、可复现的工程实践</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 技能 ============ -->
+<section class="section section-alt" id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-no mono">02</div>
+      <h2 class="section-title">专业技能</h2>
+      <p class="section-sub">Skills</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">◈</div>
+        <h3 class="skill-name">大模型与 Agent</h3>
+        <p class="skill-desc">复杂任务编排、多智能体协作与人工介入闭环</p>
+        <div class="skill-tags mono">
+          <span>LangGraph</span><span>ReAct</span><span>Plan-and-Execute</span><span>Function Calling</span><span>Multi-Agent</span><span>Human-in-the-loop</span><span>DeepSeek</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">⌕</div>
+        <h3 class="skill-name">RAG 与知识工程</h3>
+        <p class="skill-desc">中文解析、混合召回、精排与来源追溯</p>
+        <div class="skill-tags mono">
+          <span>结构分块</span><span>BGE-M3</span><span>Milvus</span><span>BM25</span><span>RRF</span><span>CrossEncoder</span><span>引用校验</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">ƒ</div>
+        <h3 class="skill-name">NLP 与模型训练</h3>
+        <p class="skill-desc">分类与命名实体识别，样本治理与评测体系</p>
+        <div class="skill-tags mono">
+          <span>BERT</span><span>RoBERTa</span><span>NER</span><span>Hard Negative</span><span>温度校准</span><span>Macro-F1</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">⬡</div>
+        <h3 class="skill-name">知识图谱与数据</h3>
+        <p class="skill-desc">本体设计、图检索与多存储协同</p>
+        <div class="skill-tags mono">
+          <span>Neo4j</span><span>Cypher</span><span>PostgreSQL</span><span>MySQL</span><span>Redis</span><span>Milvus</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">⌘</div>
+        <h3 class="skill-name">服务与工程</h3>
+        <p class="skill-desc">高可用服务、流式交互与可观测性</p>
+        <div class="skill-tags mono">
+          <span>Python</span><span>FastAPI</span><span>SSE/WebSocket</span><span>Pydantic</span><span>Pytest</span><span>Docker</span><span>Git</span><span>Linux</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">◐</div>
+        <h3 class="skill-name">计算机视觉</h3>
+        <p class="skill-desc">图像定位、光学特征计算与算法封装</p>
+        <div class="skill-tags mono">
+          <span>C++</span><span>OpenCV</span><span>形态学</span><span>几何定位</span><span>DLL 封装</span><span>C# 联调</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 项目 ============ -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-no mono">03</div>
+      <h2 class="section-title">项目经历</h2>
+      <p class="section-sub">Projects</p>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-head">
+        <div>
+          <h3 class="project-name">汽车电子测试异常诊断与闭环 Copilot Agent</h3>
+          <div class="project-meta mono"><span>算法工程师</span><span>2026/01 — 至今</span></div>
+        </div>
+        <span class="project-tag mono">LLM Agent</span>
+      </div>
+      <p class="project-bg">在知识中台事实底座上，将复杂测试异常由一次问答升级为可拆解、可取证、可暂停、可恢复、可审计的辅助处置流程。</p>
+      <ul class="project-points">
+        <li>设计 15 节点 LangGraph 状态图，Supervisor 动态生成 TaskPlan 并按任务委派知识答复 / 测试规划 / 案例复盘 / 故障诊断专家</li>
+        <li>多证据 Agent 并行取证，Evidence Supervisor 按实际证据缺口最多执行一次补检；定义状态字段所有权与稳定 evidence id 解决并行覆盖</li>
+        <li>基于 PostgreSQL Checkpointer/Store 实现中断恢复、租户隔离与审核后长期 Memory</li>
+        <li>对 P0/P1、写操作与对外报告实施 Human-in-the-loop；DeepSeek 网关统一结构化输出、超时重试、熔断降级与事件审计</li>
+        <li>OpenEvals 轨迹与安全契约：<strong>22 条黄金路径 22/22 通过</strong>，五类主链路冒烟 5/5，事件级兜底率 0%</li>
+      </ul>
+      <div class="project-stack mono"><span>Python</span><span>LangGraph</span><span>DeepSeek</span><span>FastAPI</span><span>PostgreSQL/pgvector</span><span>Milvus</span><span>Neo4j</span><span>Redis</span><span>OpenEvals</span><span>Docker Compose</span></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-head">
+        <div>
+          <h3 class="project-name">汽车电子测试与新能源设备技术知识中台</h3>
+          <div class="project-meta mono"><span>算法工程师</span><span>2025/01 — 2025/12</span></div>
+        </div>
+        <span class="project-tag mono">RAG + KG</span>
+      </div>
+      <p class="project-bg">解决设备手册、测试规范、故障案例与质量数据分散，关键词检索难以处理专业缩写、关系查询及答案溯源的问题。</p>
+      <ul class="project-points">
+        <li>设计审核 FAQ / 知识图谱 / 长文档三层知识架构，完成 4 份受控文档结构化父子分块，形成 <strong>936 个中文知识分块</strong></li>
+        <li>构建品牌、车型、零部件、供应商、质量事件、测试设备等中文本体，本地快照 <strong>25,619 节点 / 122,950 关系</strong>，参数化 Cypher + 索引支撑关系检索</li>
+        <li>BGE-M3 1024 维 Dense/Sparse 双路召回 + Milvus + RRF + 父块去重 + BGE-Reranker-v2-m3 精排</li>
+        <li>重构查询理解评测协议：Macro-F1 由 <strong>0.4795 → 0.7636</strong>；词典 + RoBERTa NER 实体 F1 由 <strong>0.5123 → 0.7414</strong></li>
+        <li>引用校验 + 证据阈值 + 无答案拒答：固定回归集 Hit@K=1.000、MRR=0.9583，检索 P50/P95 2.53s / 2.815</li>
+      </ul>
+      <div class="project-stack mono"><span>Python</span><span>FastAPI</span><span>DeepSeek</span><span>BGE-M3</span><span>BGE-Reranker</span><span>Milvus</span><span>Neo4j</span><span>RoBERTa</span><span>BM25</span><span>RRF</span></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-head">
+        <div>
+          <h3 class="project-name">发光元件视觉定位与质量检测系统</h3>
+          <div class="project-meta mono"><span>图像算法工程师</span><span>2024/03 — 2024/12</span></div>
+        </div>
+        <span class="project-tag mono">Computer Vision</span>
+      </div>
+      <p class="project-bg">面向发光元件生产检测场景，实现元件自动定位、光学特征计算和质量判定，向 C# 上位机提供稳定算法接口。</p>
+      <ul class="project-points">
+        <li>负责「图像预处理 → 候选区域提取 → 轮廓筛选 → 几何定位 → 光学特征计算 → 质量判定」全链路算法</li>
+        <li>参数化 ROI / 阈值 / 面积形状 / 位置约束策略，应对曝光波动、边缘模糊、背景噪声与元件偏移</li>
+        <li>核心算法封装为 C++ DLL，统一图像输入、参数配置、结果输出与错误码协议，配合 C# 上位机联调与版本适配</li>
+        <li>建立现场 Bad Case 闭环，将异常图像转化为可复现样本、参数边界与回归用例</li>
+      </ul>
+      <div class="project-stack mono"><span>C++</span><span>OpenCV</span><span>CMake</span><span>DLL</span><span>YOLO</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 项目仓库（在这里接入你的 GitHub 仓库） ============ -->
+<section class="section section-alt" id="repos">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-no mono">04</div>
+      <h2 class="section-title">项目仓库</h2>
+      <p class="section-sub">Repositories</p>
+    </div>
+    <p class="section-note reveal mono">// 把下面占位卡片替换成你的 GitHub 仓库地址，即可展示真实项目</p>
+    <div class="repos-grid">
+
+      <!-- 示例：真实仓库卡片（把 href 换成你的仓库 URL 即可） -->
+      <a class="repo-card repo-card--real reveal" href="<%= theme.github %>" target="_blank" rel="noopener">
+        <div class="repo-head">
+          <span class="repo-icon">⌥</span>
+          <span class="repo-name mono">evanshao408</span>
+          <span class="repo-public mono">Public</span>
+        </div>
+        <p class="repo-desc">我的 GitHub 主页 —— 个人项目与代码仓库集中地。</p>
+        <div class="repo-foot mono">
+          <span class="repo-lang"><i class="lang-dot"></i>Portfolio</span>
+          <span>★ 0</span>
+        </div>
+      </a>
+
+      <!-- 占位卡片：复制下面这个 <a> 结构，填上真实仓库信息 -->
+      <div class="repo-card repo-card--placeholder reveal">
+        <div class="repo-head">
+          <span class="repo-icon">⌥</span>
+          <span class="repo-name mono">repo-name</span>
+          <span class="repo-soon mono">待添加</span>
+        </div>
+        <p class="repo-desc">你的项目仓库 —— 一句话描述它解决了什么问题。</p>
+        <div class="repo-foot mono">
+          <span class="repo-lang"><i class="lang-dot"></i>Language</span>
+          <span>★ —</span>
+        </div>
+      </div>
+
+      <div class="repo-card repo-card--placeholder reveal">
+        <div class="repo-head">
+          <span class="repo-icon">⌥</span>
+          <span class="repo-name mono">repo-name</span>
+          <span class="repo-soon mono">待添加</span>
+        </div>
+        <p class="repo-desc">你的项目仓库 —— 一句话描述它解决了什么问题。</p>
+        <div class="repo-foot mono">
+          <span class="repo-lang"><i class="lang-dot"></i>Language</span>
+          <span>★ —</span>
+        </div>
+      </div>
+
+      <div class="repo-card repo-card--placeholder reveal">
+        <div class="repo-head">
+          <span class="repo-icon">⌥</span>
+          <span class="repo-name mono">repo-name</span>
+          <span class="repo-soon mono">待添加</span>
+        </div>
+        <p class="repo-desc">你的项目仓库 —— 一句话描述它解决了什么问题。</p>
+        <div class="repo-foot mono">
+          <span class="repo-lang"><i class="lang-dot"></i>Language</span>
+          <span>★ —</span>
+        </div>
+      </div>
+
+      <div class="repo-card repo-card--placeholder reveal">
+        <div class="repo-head">
+          <span class="repo-icon">⌥</span>
+          <span class="repo-name mono">repo-name</span>
+          <span class="repo-soon mono">待添加</span>
+        </div>
+        <p class="repo-desc">你的项目仓库 —— 一句话描述它解决了什么问题。</p>
+        <div class="repo-foot mono">
+          <span class="repo-lang"><i class="lang-dot"></i>Language</span>
+          <span>★ —</span>
+        </div>
+      </div>
+
+      <div class="repo-card repo-card--placeholder reveal">
+        <div class="repo-head">
+          <span class="repo-icon">⌥</span>
+          <span class="repo-name mono">repo-name</span>
+          <span class="repo-soon mono">待添加</span>
+        </div>
+        <p class="repo-desc">你的项目仓库 —— 一句话描述它解决了什么问题。</p>
+        <div class="repo-foot mono">
+          <span class="repo-lang"><i class="lang-dot"></i>Language</span>
+          <span>★ —</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 经验 ============ -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-no mono">05</div>
+      <h2 class="section-title">工作经验</h2>
+      <p class="section-sub">Experience</p>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <h3 class="exp-company">武汉精测电子集团股份有限公司</h3>
+            <span class="exp-time mono">2024/03 — 至今</span>
+          </div>
+          <div class="exp-role">大模型算法工程师</div>
+          <p class="exp-desc">负责汽车电子测试与新能源设备领域的大模型 Agent、RAG 检索与知识图谱工程落地。</p>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <h3 class="exp-company">河南北斗空间科技有限公司</h3>
+            <span class="exp-time mono">2023/03 — 2023/12</span>
+          </div>
+          <div class="exp-role">图像算法工程师（实习）</div>
+          <p class="exp-desc">参与图像定位与检测相关算法研发，积累 OpenCV 视觉工程实践。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 荣誉 ============ -->
+<section class="section section-alt" id="awards">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-no mono">06</div>
+      <h2 class="section-title">荣誉奖项</h2>
+      <p class="section-sub">Awards</p>
+    </div>
+    <div class="awards-grid">
+      <div class="award reveal">
+        <div class="award-year mono">2022</div>
+        <div class="award-name">CCPC 亚洲区域赛 · 桂林站</div>
+        <div class="award-prize">铜牌</div>
+      </div>
+      <div class="award reveal">
+        <div class="award-year mono">2022</div>
+        <div class="award-name">ICPC 亚洲区域赛 · 沈阳站</div>
+        <div class="award-prize">铜牌</div>
+      </div>
+      <div class="award reveal">
+        <div class="award-year mono">2023</div>
+        <div class="award-name">第十四届蓝桥杯 · 全国 B 组 C/C++</div>
+        <div class="award-prize">一等奖</div>
+      </div>
+      <div class="award reveal">
+        <div class="award-year mono">—</div>
+        <div class="award-name">睿抗机器人开发者编程大赛 · 全国赛</div>
+        <div class="award-prize">三等奖</div>
+      </div>
+      <div class="award reveal">
+        <div class="award-year mono">—</div>
+        <div class="award-name">第四届 CCPC · 河南省</div>
+        <div class="award-prize">二等奖</div>
+      </div>
+      <div class="award reveal">
+        <div class="award-year mono">—</div>
+        <div class="award-name">第四届传智杯 · 全国大学生程序设计竞赛</div>
+        <div class="award-prize">一等奖</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 教育 ============ -->
+<section class="section" id="education">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-no mono">07</div>
+      <h2 class="section-title">教育经历</h2>
+      <p class="section-sub">Education</p>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-top">
+        <h3 class="edu-school">南阳理工学院</h3>
+        <span class="edu-time mono">2020/09 — 2024/07</span>
+      </div>
+      <div class="edu-major">软件工程 · 全日制本科</div>
+      <ul class="edu-points">
+        <li>专业排名前 10%，连续三年获二等奖学金</li>
+        <li>担任 ACM 社团负责人，定期培训新人，主持队内例会与内部知识分享</li>
+        <li>组织、命题第二届河南省新生程序设计大赛等工作</li>
+      </ul>
+    </div>
+  </div>
+</section>
