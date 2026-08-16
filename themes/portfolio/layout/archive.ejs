@@ -1,0 +1,11 @@
+<section class="section">
+  <div class="container container-narrow">
+    <div class="sec-head"><span class="sec-no mono">#</span><h1 class="sec-title serif">归档</h1></div>
+    <% var posts = page.posts || site.posts; %>
+    <ul class="list mono">
+      <% posts.each(function(post){ %>
+        <li><span class="muted"><%- date(post.date, 'YYYY-MM-DD') %></span><a href="<%- url_for(post.path) %>"><%= post.title %></a></li>
+      <% }) %>
+    </ul>
+  </div>
+</section>

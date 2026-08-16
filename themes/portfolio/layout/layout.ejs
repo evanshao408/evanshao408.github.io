@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= page.title && page.title !== 'index' ? page.title + ' · ' : '' %><%= theme.name %> · <%= theme.title %></title>
+  <meta name="description" content="<%= theme.name %> — <%= theme.title %>，专注 LLM Agent、RAG 与知识图谱工程化。">
+  <meta name="theme-color" content="#c1440e">
+  <link rel="stylesheet" href="<%- url_for('css/style.css') %>">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="<%- url_for('/') %>" class="brand mono"><span class="brand-dot">●</span><%= theme.name %></a>
+    <nav class="nav-links">
+      <a href="#about">关于</a>
+      <a href="#projects">项目</a>
+      <a href="#awards">奖项</a>
+      <a href="#links">友链</a>
+    </nav>
+    <a class="nav-cta mono" href="<%= theme.github %>" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<main><%- body %></main>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-line"></div>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-name serif"><%= theme.name %></div>
+        <div class="footer-sub mono muted"><%= theme.title %> · <%= theme.en_title %></div>
+      </div>
+      <div class="footer-links mono">
+        <a href="<%= theme.github %>" target="_blank" rel="noopener">GitHub</a>
+        <a href="<%= theme.csdn %>" target="_blank" rel="noopener">CSDN</a>
+        <a href="mailto:<%= theme.email %>">Email</a>
+      </div>
+    </div>
+    <div class="footer-foot mono muted">
+      <span>$ echo "thanks for visiting"</span>
+      <span>© 2026 <%= theme.name %></span>
+    </div>
+  </div>
+</footer>
+
+<script src="<%- url_for('js/main.js') %>"></script>
+</body>
+</html>
