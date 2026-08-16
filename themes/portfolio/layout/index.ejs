@@ -55,18 +55,32 @@
     <div class="proj">
       <div class="proj-meta mono"><span>2026</span><span class="proj-role">算法工程师</span></div>
       <div class="proj-body">
-        <h3 class="proj-name serif">汽车电子测试异常诊断 Copilot Agent</h3>
-        <p class="proj-desc">基于 LangGraph 的多智能体协作，将复杂测试异常升级为可拆解、可取证、可审计的辅助处置流程，22 条黄金路径 22/22 通过。</p>
-        <div class="proj-stack mono"><span>Python</span><span>LangGraph</span><span>DeepSeek</span><span>FastAPI</span><span>PostgreSQL</span><span>Milvus</span><span>Neo4j</span><span>OpenEvals</span></div>
+        <h3 class="proj-name serif">汽车电子测试异常诊断与闭环 Copilot Agent</h3>
+        <p class="proj-desc">在知识中台事实底座上，将复杂测试异常由一次问答升级为可拆解、可取证、可暂停、可恢复、可审计的辅助处置流程；系统只提供诊断建议与报告草稿，不直接控制测试设备或自动确认根因。</p>
+        <ul class="proj-points">
+          <li>设计并实现 15 节点 LangGraph 状态图，以确定性控制面约束权限、循环与审批，由 Supervisor 动态生成 TaskPlan，并按任务委派知识答复、测试规划、案例复盘或故障诊断专家。</li>
+          <li>将知识中台与历史案例封装为带 Pydantic Schema、超时与失败语义的只读工具；支持多证据 Agent 并行取证，Evidence Supervisor 依据证据缺口执行至多一次补检。</li>
+          <li>定义 CopilotState 字段所有权、reducer 与稳定 evidence id，解决并行状态覆盖与重复证据；基于 PostgreSQL Checkpointer/Store 实现中断恢复、租户隔离与审核后长期 Memory。</li>
+          <li>对 P0/P1、高压、写操作与对外报告实施 Human-in-the-loop；构建 DeepSeek 模型网关，统一结构化输出、超时重试、短时熔断、fallback 与模型事件审计。</li>
+          <li>基于 OpenEvals 建立轨迹与安全契约：22 条黄金路径 22/22 通过，五类 DeepSeek 实时主链路冒烟 5/5 通过、事件级兜底率 0%。</li>
+        </ul>
+        <div class="proj-stack mono"><span>Python</span><span>LangGraph</span><span>DeepSeek</span><span>FastAPI</span><span>PostgreSQL</span><span>Milvus</span><span>Neo4j</span><span>Redis</span><span>OpenEvals</span></div>
       </div>
     </div>
 
     <div class="proj">
-      <div class="proj-meta mono"><span>2025</span><span class="proj-role">算法工程师</span></div>
+      <div class="proj-meta mono"><span>2025</span><span class="proj-role">大模型算法工程师</span></div>
       <div class="proj-body">
         <h3 class="proj-name serif">汽车电子测试与新能源设备技术知识中台</h3>
-        <p class="proj-desc">三层知识架构 + BGE-M3 混合检索，落地 936 个知识分块、25,619 节点知识图谱，Macro-F1 由 0.48 提升至 0.76。</p>
-        <div class="proj-stack mono"><span>FastAPI</span><span>BGE-M3</span><span>Milvus</span><span>Neo4j</span><span>RoBERTa</span><span>RRF</span></div>
+        <p class="proj-desc">面向汽车电子测试、质量与技术支持场景，解决设备手册、测试规范、故障案例与质量数据分散，关键词检索难以处理专业缩写、关系查询及答案溯源的问题。</p>
+        <ul class="proj-points">
+          <li>设计审核 FAQ、知识图谱与长文档三层知识架构，建立来源、版本、内容哈希与引用定位规范；完成 4 份受控文档的结构化父子分块，形成 936 个中文知识分块。</li>
+          <li>设计品牌、车型、零部件、供应商、质量事件、测试设备/项目、故障现象及风险等级等中文本体，以参数化 Cypher 与索引支撑关系检索；本地快照含 25,619 个节点、122,950 条关系。</li>
+          <li>基于 BGE-M3 构建 1024 维 Dense / Learned Sparse 双路召回，经 Milvus、RRF、父块去重与 BGE-Reranker-v2-m3 精排，兼顾专业缩写、设备型号与长文档语义检索。</li>
+          <li>重构查询理解模型的数据与评测协议：清理 26.29% 重复样本并隔离挑战集，Macro-F1 由 0.4795 提升至 0.7636；采用词典 + RoBERTa NER，337 条测试句严格实体 F1 由 0.5123 提升至 0.7414。</li>
+          <li>建立引用校验、证据阈值与无答案拒答机制；12 条固定中文回归集达到 Document/Keyword Hit@K=1.000、MRR=0.9583，检索 P50/P95 约 2.53s / 2.81s。</li>
+        </ul>
+        <div class="proj-stack mono"><span>FastAPI</span><span>DeepSeek</span><span>BGE-M3</span><span>Milvus</span><span>Neo4j</span><span>RoBERTa</span><span>BM25</span><span>RRF</span></div>
       </div>
     </div>
 
@@ -74,8 +88,14 @@
       <div class="proj-meta mono"><span>2024</span><span class="proj-role">图像算法工程师</span></div>
       <div class="proj-body">
         <h3 class="proj-name serif">发光元件视觉定位与质量检测系统</h3>
-        <p class="proj-desc">OpenCV 图像定位与光学质量判定全链路，核心算法封装为 C++ DLL 并与 C# 上位机联调。</p>
-        <div class="proj-stack mono"><span>C++</span><span>OpenCV</span><span>DLL</span><span>YOLO</span></div>
+        <p class="proj-desc">面向发光元件生产检测场景，实现元件自动定位、光学特征计算与质量判定，向 C# 上位机提供稳定的算法接口。</p>
+        <ul class="proj-points">
+          <li>负责「图像预处理 → 候选区域提取 → 轮廓筛选 → 几何定位 → 光学特征计算 → 质量判定」算法链路，输出元件坐标、亮度、色差、外观特征与结果码。</li>
+          <li>设计 ROI、阈值、面积/形状及位置约束等参数化策略，处理曝光波动、边缘模糊、背景噪声与元件偏移，降低背景区域与非目标轮廓干扰。</li>
+          <li>将核心算法封装为 C++ DLL，统一图像输入、参数配置、结果输出与错误码协议，配合 C# 上位机完成接口联调、异常定位与版本适配。</li>
+          <li>建立现场 Bad Case 闭环，将异常图像转化为可复现样本、参数边界与回归用例，为算法迭代与交付验收提供依据。</li>
+        </ul>
+        <div class="proj-stack mono"><span>C++</span><span>OpenCV</span><span>CMake</span><span>DLL</span><span>YOLO</span></div>
       </div>
     </div>
   </div>
