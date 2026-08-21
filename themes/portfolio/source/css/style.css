@@ -119,6 +119,86 @@ em { font-style: normal; color: var(--accent); }
 .proj-stack { display: flex; flex-wrap: wrap; gap: 8px; }
 .proj-stack span { font-size: 12px; color: var(--ink-2); border: 1px solid var(--line-strong); padding: 2px 10px; border-radius: 999px; }
 
+/* ============ 知识中台 · 艺术化展示区 ============ */
+.showcase { display: flex; flex-direction: column; gap: 22px; max-width: 880px; margin: 6px 0 18px; }
+
+/* 仓库信息条 */
+.sc-repo {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 13px 16px; border: 1px solid var(--line-strong); border-radius: 10px;
+  background: var(--bg-soft); transition: all .18s;
+}
+.sc-repo:hover { border-color: var(--accent); background: var(--accent-soft); }
+.sc-repo-glyph { font-size: 16px; color: var(--accent); }
+.sc-repo-path { font-size: 13.5px; font-weight: 600; }
+.sc-repo-stats { display: flex; gap: 14px; margin-left: auto; align-items: center; font-size: 12.5px; color: var(--ink-2); }
+.sc-stat { display: inline-flex; align-items: center; gap: 4px; }
+.sc-stat svg { color: var(--ink-3); }
+.sc-stat--lang { color: var(--ink-3); }
+.sc-lang-dot { width: 9px; height: 9px; border-radius: 50%; background: #3572A5; display: inline-block; }
+.sc-repo-cta { font-size: 12.5px; color: var(--accent); font-weight: 600; }
+
+/* 关键指标 */
+.sc-metrics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.sc-metric { background: var(--bg); padding: 16px 12px; display: flex; flex-direction: column; gap: 3px; text-align: center; transition: background .18s; }
+.sc-metric:hover { background: var(--accent-soft); }
+.sc-num { font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; line-height: 1.15; }
+.sc-lbl { font-size: 11.5px; color: var(--ink-2); }
+.sc-sub { font-size: 10.5px; color: var(--ink-3); }
+.sc-sub:not(.muted) { color: #3f9d4c; }
+
+/* 端到端流水线架构图 */
+.sc-arch { border: 1px solid var(--line); border-radius: 12px; padding: 20px; background: var(--bg); }
+.sc-arch-label { font-size: 12px; color: var(--ink-3); margin-bottom: 16px; }
+.sc-pipe { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.sc-node {
+  background: #17150f; color: #d9d5c8; border-radius: 9px; padding: 12px 16px;
+  border: 1px solid #2a261d; display: flex; flex-direction: column; gap: 2px; transition: all .2s;
+}
+.sc-node-title { font-size: 14px; font-weight: 600; color: #f2efe6; }
+.sc-node-tech { font-size: 11.5px; color: #8f8876; }
+.sc-node--io { border-color: #4a3d2a; }
+.sc-node--io .sc-node-title { color: #e0b87a; }
+.sc-node--route { border-color: var(--accent); background: #241309; }
+.sc-node--route .sc-node-title { color: var(--accent); }
+.sc-node--gate { border-color: #3a2a1a; background: #1a1610; }
+.sc-node--gate .sc-node-title { color: #d9a14e; }
+.sc-arrow { align-self: center; width: 1px; height: 20px; background: var(--accent); position: relative; }
+.sc-arrow::after { content: ""; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 6px solid var(--accent); }
+.sc-sources { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sc-source-node { background: #1d1b15; border-radius: 9px; padding: 12px 16px; border: 1px solid #2a261d; display: flex; flex-direction: column; gap: 2px; transition: all .25s; }
+.sc-source-node[data-side="kg"].hl { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.sc-source-node[data-side="rag"].hl { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.sc-source-node[data-side="kg"].dim,
+.sc-source-node[data-side="rag"].dim { opacity: .35; }
+
+/* 五档路由交互 */
+.sc-routing { border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: var(--bg); }
+.sc-routing-label { font-size: 12px; color: var(--ink-3); margin-bottom: 14px; }
+.sc-route-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.sc-route-tab {
+  font-family: var(--mono); font-size: 12px; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--line-strong); background: var(--bg); color: var(--ink-2); cursor: pointer; transition: all .15s;
+}
+.sc-route-tab:hover { border-color: var(--accent); color: var(--accent); }
+.sc-route-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.sc-route-panel { padding: 4px 2px 2px; }
+.sc-route-name { font-size: 18px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+.sc-route-desc { font-size: 14.5px; color: var(--ink-2); margin-bottom: 12px; max-width: 680px; line-height: 1.7; }
+.sc-route-path { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
+.sc-route-step { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--ink-2); transition: all .2s; }
+.sc-route-step.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.sc-route-step.dim { opacity: .4; }
+.sc-route-sep { color: var(--ink-3); }
+
+/* 三知识源卡片 */
+.sc-sourcecards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sc-sourcecard { border: 1px solid var(--line); border-radius: 10px; padding: 16px; background: var(--bg); transition: all .18s; }
+.sc-sourcecard:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 24px -16px rgba(193,68,14,.4); }
+.sc-sourcecard-h { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; gap: 7px; }
+.sc-sourcecard-glyph { color: var(--accent); font-size: 15px; }
+.sc-sourcecard p { font-size: 13px; color: var(--ink-2); line-height: 1.65; }
+
 /* ============ 奖项 ============ */
 .awards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 44px; }
 .award { display: flex; align-items: baseline; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -176,4 +256,8 @@ em { font-style: normal; color: var(--accent); }
   .awards { grid-template-columns: 1fr; }
   .hero { padding: 64px 0 56px; }
   .section { padding: 56px 0; }
+  .sc-metrics { grid-template-columns: repeat(2, 1fr); }
+  .sc-sourcecards { grid-template-columns: 1fr; }
+  .sc-sources { grid-template-columns: 1fr; }
+  .sc-repo-stats { margin-left: 0; width: 100%; }
 }

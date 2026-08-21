@@ -87,14 +87,119 @@
       <div class="proj-meta mono"><span>2025</span><span class="proj-role">大模型算法工程师</span></div>
       <div class="proj-body">
         <h3 class="proj-name serif">汽车电子测试与新能源设备技术知识中台</h3>
-        <p class="proj-desc">面向汽车电子测试、质量与技术支持场景，解决设备手册、测试规范、故障案例与质量数据分散，关键词检索难以处理专业缩写、关系查询及答案溯源的问题。</p>
-        <ul class="proj-points">
-          <li>设计审核 FAQ、知识图谱与长文档三层知识架构，建立来源、版本、内容哈希与引用定位规范；完成 4 份受控文档的结构化父子分块，形成 936 个中文知识分块。</li>
-          <li>设计品牌、车型、零部件、供应商、质量事件、测试设备/项目、故障现象及风险等级等中文本体，以参数化 Cypher 与索引支撑关系检索；本地快照含 25,619 个节点、122,950 条关系。</li>
-          <li>基于 BGE-M3 构建 1024 维 Dense / Learned Sparse 双路召回，经 Milvus、RRF、父块去重与 BGE-Reranker-v2-m3 精排，兼顾专业缩写、设备型号与长文档语义检索。</li>
-          <li>重构查询理解模型的数据与评测协议：清理 26.29% 重复样本并隔离挑战集，Macro-F1 由 0.4795 提升至 0.7636；采用词典 + RoBERTa NER，337 条测试句严格实体 F1 由 0.5123 提升至 0.7414。</li>
-          <li>建立引用校验、证据阈值与无答案拒答机制；12 条固定中文回归集达到 Document/Keyword Hit@K=1.000、MRR=0.9583，检索 P50/P95 约 2.53s / 2.81s。</li>
-        </ul>
+        <p class="proj-desc">面向汽车电子测试、质量与技术支持场景，解决设备手册、测试规范、故障案例与质量数据分散，关键词检索难以处理专业缩写、关系查询及答案溯源的问题。融合 FAQ、知识图谱与文档 RAG 三类知识源，五档路由自动选择检索策略，证据不足时拒答而非臆造。</p>
+
+        <div class="showcase" id="kp-showcase">
+          <!-- 仓库信息条 -->
+          <a class="sc-repo" href="https://github.com/evanshao408/Automotive-Test-New-Energy-Knowledge-Platform" target="_blank" rel="noopener">
+            <span class="sc-repo-glyph mono">⬡</span>
+            <span class="sc-repo-path mono">evanshao408<span class="muted">/</span>Automotive-Test-New-Energy-Knowledge-Platform</span>
+            <span class="sc-repo-stats mono">
+              <span class="sc-stat"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg><b data-stars>4</b></span>
+              <span class="sc-stat"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0zM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0z"/></svg><b data-forks>1</b></span>
+              <span class="sc-stat sc-stat--lang"><span class="sc-lang-dot"></span>Python · 94%</span>
+            </span>
+            <span class="sc-repo-cta mono">查看仓库 ↗</span>
+          </a>
+
+          <!-- 关键指标 -->
+          <div class="sc-metrics">
+            <div class="sc-metric"><b class="sc-num serif">25,619</b><span class="sc-lbl mono">图谱节点</span><span class="sc-sub mono muted">8 类实体本体</span></div>
+            <div class="sc-metric"><b class="sc-num serif">122,950</b><span class="sc-lbl mono">知识关系</span><span class="sc-sub mono muted">参数化 Cypher</span></div>
+            <div class="sc-metric"><b class="sc-num serif">936</b><span class="sc-lbl mono">中文分块</span><span class="sc-sub mono muted">4 份受控文档</span></div>
+            <div class="sc-metric"><b class="sc-num serif">0.7636</b><span class="sc-lbl mono">分类 Macro-F1</span><span class="sc-sub mono">↑ 自 0.4795</span></div>
+            <div class="sc-metric"><b class="sc-num serif">0.9583</b><span class="sc-lbl mono">检索 MRR</span><span class="sc-sub mono muted">Hit@K 1.000</span></div>
+          </div>
+
+          <!-- 端到端流水线架构图 -->
+          <div class="sc-arch">
+            <div class="sc-arch-label mono">// 端到端 检索—生成 流水线</div>
+            <div class="sc-pipe">
+              <div class="sc-node sc-node--io">
+                <span class="sc-node-title">用户提问</span>
+                <span class="sc-node-tech mono">Web UI · REST · WebSocket 逐 token 流式</span>
+              </div>
+              <div class="sc-arrow"></div>
+              <div class="sc-node">
+                <span class="sc-node-title">查询分类</span>
+                <span class="sc-node-tech mono">BERT 四分类 → LLM → 关键词规则 · 三级降级</span>
+              </div>
+              <div class="sc-arrow"></div>
+              <div class="sc-node">
+                <span class="sc-node-title">实体识别与对齐</span>
+                <span class="sc-node-tech mono">Aho-Corasick 词典 + RoBERTa-BiLSTM + TF-IDF 对齐</span>
+              </div>
+              <div class="sc-arrow"></div>
+              <div class="sc-node sc-node--route">
+                <span class="sc-node-title">五档可解释路由</span>
+                <span class="sc-node-tech mono">KG_ONLY · KG_FIRST · HYBRID · RAG_FIRST · RAG_ONLY</span>
+              </div>
+              <div class="sc-arrow"></div>
+              <div class="sc-sources">
+                <div class="sc-source-node" data-side="kg">
+                  <span class="sc-node-title">知识图谱</span>
+                  <span class="sc-node-tech mono">Neo4j · 参数化 Cypher · 8 类实体</span>
+                </div>
+                <div class="sc-source-node" data-side="rag">
+                  <span class="sc-node-title">文档 RAG</span>
+                  <span class="sc-node-tech mono">Milvus · BGE-M3 双路 → RRF → 重排</span>
+                </div>
+              </div>
+              <div class="sc-arrow"></div>
+              <div class="sc-node sc-node--gate">
+                <span class="sc-node-title">证据门控 · 熔断降级</span>
+                <span class="sc-node-tech mono">阈值/命中校验 · 单源熔断不阻塞 · 不足则 ABSTAIN 拒答</span>
+              </div>
+              <div class="sc-arrow"></div>
+              <div class="sc-node sc-node--io">
+                <span class="sc-node-title">LLM 流式回答</span>
+                <span class="sc-node-tech mono">DeepSeek (OpenAI 兼容) · 附来源/页码/决策审计</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 五档路由交互 -->
+          <div class="sc-routing">
+            <div class="sc-routing-label mono">// 五档可解释路由 — 点击查看各档检索策略与知识源</div>
+            <div class="sc-route-tabs" role="tablist">
+              <button class="sc-route-tab" type="button" data-route="KG_ONLY">KG_ONLY</button>
+              <button class="sc-route-tab" type="button" data-route="KG_FIRST">KG_FIRST</button>
+              <button class="sc-route-tab active" type="button" data-route="HYBRID">HYBRID</button>
+              <button class="sc-route-tab" type="button" data-route="RAG_FIRST">RAG_FIRST</button>
+              <button class="sc-route-tab" type="button" data-route="RAG_ONLY">RAG_ONLY</button>
+            </div>
+            <div class="sc-route-panel">
+              <div class="sc-route-name serif">HYBRID · 混合检索</div>
+              <p class="sc-route-desc">图谱与文档并行检索，证据融合后统一门控与生成。适合综合复杂型问题——既要实体关系，又需长文档佐证。</p>
+              <div class="sc-route-path mono">
+                <span class="sc-route-step" data-side="kg">知识图谱</span>
+                <span class="sc-route-sep">+</span>
+                <span class="sc-route-step" data-side="rag">文档 RAG</span>
+                <span class="sc-route-sep">→</span>
+                <span class="sc-route-step" data-side="gate">证据门控</span>
+                <span class="sc-route-sep">→</span>
+                <span class="sc-route-step" data-side="gen">流式生成</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 三知识源卡片 -->
+          <div class="sc-sourcecards">
+            <div class="sc-sourcecard">
+              <div class="sc-sourcecard-h mono"><span class="sc-sourcecard-glyph">▤</span>FAQ 快速匹配</div>
+              <p>BM25 检索 + Redis 缓存 + MySQL 持久化，高频问题命中即返回，绕过重型检索链路。</p>
+            </div>
+            <div class="sc-sourcecard">
+              <div class="sc-sourcecard-h mono"><span class="sc-sourcecard-glyph">◇</span>知识图谱 · Neo4j</div>
+              <p>品牌 / 车型 / 零部件 / 故障 / 设备 / 项目 / 供应商 / 风险 8 类实体本体，参数化 Cypher 支撑关系检索，本地快照 25,619 节点 / 122,950 关系。</p>
+            </div>
+            <div class="sc-sourcecard">
+              <div class="sc-sourcecard-h mono"><span class="sc-sourcecard-glyph">◈</span>文档 RAG · Milvus</div>
+              <p>BGE-M3 1024 维稠密 + 稀疏双路召回，RRF 融合、父块去重、CrossEncoder 重排；Word / PPT / PDF / OCR 多格式摄取。</p>
+            </div>
+          </div>
+        </div>
+
         <div class="proj-stack mono"><span>FastAPI</span><span>DeepSeek</span><span>BGE-M3</span><span>Milvus</span><span>Neo4j</span><span>RoBERTa</span><span>BM25</span><span>RRF</span></div>
       </div>
     </div>
